@@ -91,6 +91,7 @@ bool processData() {
             }
         }
     }
+    return true;
 }
 
 void writeData() {
@@ -100,13 +101,13 @@ void writeData() {
     std::ofstream exportFile;
     exportFile.open(exportPath);
     exportFile << "Vertices\n";
-    for(int i = 0; i <= vertices.size(); i++){
+    for(int i = 0; i < vertices.size() - 1; i++){
         exportFile << vertices[i].x << " " << vertices[i].y << " " << vertices[i].z << " " <<
                     vertices[i].normalX << " " << vertices[i].normalY << " " << vertices[i].normalZ << " " <<
                     vertices[i].textureX << " " << vertices[i].textureY << "\n";
     }
     exportFile << "Indices\n";
-    for(int i = 0; i <= indices.size(); i++) {
+    for(int i = 0; i < indices.size() - 1; i++) {
         exportFile << indices[i] << "\n";
     }
     exportFile.close();
